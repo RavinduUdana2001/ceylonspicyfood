@@ -1,0 +1,50 @@
+/* Navbar Styling */
+.navbar-custom {
+  background-color: #B8405E; /* Main background color */
+  transition: all 0.4s ease-in-out;
+  padding: 15px 0;
+}
+
+.navbar-custom .navbar-brand {
+  color: #EEE6CE; /* Light yellow for logo */
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.navbar-custom .nav-link {
+  color: #EEE6CE; /* Light yellow for links */
+  font-size: 1.1rem;
+  margin-right: 20px;
+  transition: color 0.4s ease-in-out;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #FFD93D; /* Warm yellow hover effect */
+}
+
+/* Navbar Scroll Effect */
+.navbar-scrolled {
+  background-color: #313552 !important; /* Darker color for scrolling effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar-custom .navbar-toggler {
+  background-color: #FFD93D; /* Background color for toggler */
+}
+
+.navbar-custom .navbar-toggler-icon {
+  color: #B8405E; /* Color for toggler icon */
+}
+
+/* Align items to start (left) in mobile view */
+@media (max-width: 991.98px) {
+  .navbar-custom .navbar-nav {
+    text-align: start; /* Align items to the left */
+  }
+
+  .navbar-custom .nav-item {
+    padding: 10px 0;
+  }
+}

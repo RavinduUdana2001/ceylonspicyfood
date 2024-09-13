@@ -1,0 +1,46 @@
+/* Styling for the Feature Showcase Section */
+.feature-showcase {
+  background-color: #EEE6CE; /* Light yellow background for contrast */
+  padding: 5rem 0; /* Adequate padding for vertical spacing */
+}
+
+.feature-box {
+  background-color: #ffffff; /* White background for the feature box */
+  border-radius: 15px; /* Rounded corners for a modern look */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #FFD93D; /* Bright yellow for icon accent */
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.75rem;
+  color: #313552; /* Dark navy for text */
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #666; /* Light gray for description text */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+/* Font Awesome icons should be imported globally or included in your project */

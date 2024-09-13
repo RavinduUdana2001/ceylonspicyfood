@@ -1,0 +1,74 @@
+.featured-highlights {
+    background-color: #f0f8f4; /* Light, soft background color for a fresh look */
+    padding: 4rem 1.5rem; /* Padding for spacing */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .highlights-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .highlights-header h2 {
+    font-size: 2.5rem;
+    color: #313552; /* Dark blue for headings */
+    margin-bottom: 0.5rem;
+  }
+  
+  .highlights-header p {
+    font-size: 1.125rem;
+    color: #666; /* Light gray for description text */
+  }
+  
+  .highlights-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .highlight-item {
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 12px; /* Rounded corners */
+    padding: 2rem;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .highlight-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .highlight-icon {
+    font-size: 3rem;
+    color: #4D96FF; /* Accent color */
+    margin-bottom: 1rem;
+  }
+  
+  .highlight-item h3 {
+    font-size: 1.75rem;
+    color: #313552; /* Dark blue for headings */
+    margin-bottom: 1rem;
+  }
+  
+  .highlight-item p {
+    font-size: 1rem;
+    color: #666; /* Light gray for text */
+  }
+  
+  @media (max-width: 768px) {
+    .highlights-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
