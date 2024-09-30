@@ -1,51 +1,60 @@
-import React from 'react';
-import './FeaturedDishesSection.css'; // Import CSS file for styling
-import pic1 from '../../assets/delicious-meal-table.jpg';
-import pic2 from '../../assets/curry-with-chicken-onions-indian-food-asian-cuisine-top-view.jpg';
-import pic3 from '../../assets/delicious-bowl-with-sauce-top-view.jpg';
-
-
-// Sample data for featured dishes
-const featuredDishes = [
-  {
-    id: 1,
-    name: 'Sizzling Spicy Shrimp',
-    description: 'Juicy shrimp cooked with a blend of spicy herbs and served sizzling hot.',
-    image: pic1 // Replace with your image path
-  },
-  {
-    id: 2,
-    name: 'Hot Chili Ramen',
-    description: 'Rich and spicy ramen soup with tender noodles and fresh veggies.',
-    image: pic2 // Replace with your image path
-  },
-  {
-    id: 3,
-    name: 'Spicy BBQ Ribs',
-    description: 'Succulent ribs coated in a spicy BBQ sauce, grilled to perfection.',
-    image: pic3 // Replace with your image path
-  }
-  // Add more items as needed
-];
+import React, { useState, useEffect } from 'react';
+import './FeaturedDishesSection.css';
 
 function FeaturedDishesSection() {
+  const [dishes, setDishes] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/featured-dishes');
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data); // Log the dishes data to inspect
+          setDishes(data);
+        } else {
+          console.error('Error fetching dishes:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching dishes:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchDishes();
+  }, []);
+  
+
+  const imageBasePath = 'http://localhost:5000/uploads/'; // Ensure this matches your server setup
+
   return (
     <section className="featured-dishes-section py-5">
       <div className="container">
         <h2 className="text-center mb-4">Featured Spicy Dishes</h2>
-        <div className="row">
-          {featuredDishes.map(dish => (
-            <div key={dish.id} className="col-md-4 mb-4">
-              <div className="dish-item">
-                <img src={dish.image} alt={dish.name} className="dish-image" />
-                <div className="dish-info">
-                  <h3 className="dish-name">{dish.name}</h3>
-                  <p className="dish-description">{dish.description}</p>
+        {loading ? (
+          <p className="text-center">Loading...</p>
+        ) : (
+          <div className="row">
+            {Array.isArray(dishes) && dishes.length > 0 ? (
+              dishes.map(dish => (
+                <div key={dish.id} className="col-md-4 mb-4">
+                  <div className="dish-item">
+                    {/* Construct the image URL */}
+                    <img src={`${imageBasePath}${dish.image}`} alt={dish.name} className="dish-image" />
+                    <div className="dish-info">
+                      <h3 className="dish-name">{dish.name}</h3>
+                      <p className="dish-description">{dish.description}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              ))
+            ) : (
+              <p className="text-center">No dishes available</p>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
