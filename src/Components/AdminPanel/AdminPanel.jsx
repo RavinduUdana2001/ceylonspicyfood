@@ -30,7 +30,7 @@ function AdminPanel({ onAddDish }) {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/featured-dishes', formData, { // Correct URL
+      await axios.post('https://spicyfood-backend-node-js.onrender.com/api/featured-dishes', formData, { // Correct URL
         headers: {
           'Content-Type': 'multipart/form-data',
         },

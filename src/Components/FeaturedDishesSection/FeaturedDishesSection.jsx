@@ -8,7 +8,7 @@ function FeaturedDishesSection() {
   useEffect(() => {
     const fetchDishes = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/featured-dishes');
+        const response = await fetch('https://spicyfood-backend-node-js.onrender.com/api/featured-dishes');
         if (response.ok) {
           const data = await response.json();
           console.log(data); // Log the dishes data to inspect
@@ -27,7 +27,7 @@ function FeaturedDishesSection() {
   }, []);
   
 
-  const imageBasePath = 'http://localhost:5000/uploads/'; // Ensure this matches your server setup
+  const imageBasePath = 'https://spicyfood-backend-node-js.onrender.com/uploads/'; // Ensure this matches your server setup
 
   return (
     <section className="featured-dishes-section py-5">
